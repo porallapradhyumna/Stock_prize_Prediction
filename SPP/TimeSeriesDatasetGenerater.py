@@ -35,7 +35,7 @@ class TimeSeriesDatasetGenerater(Dataset):
         inputs = self.data[i:i + self.sequence_length]
         targets = self.targets[i + self.sequence_length]
 
-        return inputs, targets.unsqueeze(dim=-1)
+        return inputs, targets
 # Create a TimeSeriesDataset object
 #dataset = TimeSeriesDataset(data, targets, sequence_length, sequence_stride, sampling_rate, batch_size, shuffle, seed, start_index, end_index)
 

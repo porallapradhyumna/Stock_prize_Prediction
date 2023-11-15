@@ -134,11 +134,11 @@ if __name__ == '__main__':
     dataset = TimeSeriesDatasetGenerater(x, y, sequence_length, sequence_stride=2, sampling_rate = sampling_rate, batch_size = batch_size, shuffle = False, seed=None, start_index=0, end_index=566-sequence_length)
     dataloader = torch.utils.data.DataLoader(dataset, batch_size=dataset.batch_size, shuffle=dataset.shuffle)
     
-    vm = V1_Model()#.to('cuda')
+    vm = V1_Model().to('cuda')
     
     for batch in dataloader:
         x,y = batch
-        #x,y = x.to('cuda'),y.to('cuda')
+        x,y = x.to('cuda'),y.to('cuda')
         print(x.shape,y.shape)
         x = vm(x)
         break
